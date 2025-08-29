@@ -72,6 +72,7 @@ export const Filters = (props) => {
       "COURT",
       "ELECTRONICS",
       "CLOTHES",
+      "FURNITURE",
     ],
   });
 
@@ -201,6 +202,8 @@ export const Filters = (props) => {
         search,
       });
     }
+
+    console.log(finalFilters);
 
     onSubmit(finalFilters);
   };
