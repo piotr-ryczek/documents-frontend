@@ -1,17 +1,17 @@
 import React, { useEffect, useReducer } from "react";
 
-import Grid from "@material-ui/core/Grid";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import ListItemText from "@material-ui/core/ListItemText";
-import Select from "@material-ui/core/Select";
-import Checkbox from "@material-ui/core/Checkbox";
-import DatePicker from "@material-ui/lab/DatePicker";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import Grid from "@mui/material/Grid";
+import { makeStyles, createStyles } from "@mui/styles";
+import Input from "@mui/material/Input";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import ListItemText from "@mui/material/ListItemText";
+import Select from "@mui/material/Select";
+import Checkbox from "@mui/material/Checkbox";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 import basicReducer from "../../lib/basic-reducer";
 import api from "../../lib/api";
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) =>
     textField: {
       width: "100%",
     },
-  })
+  }),
 );
 
 const MenuProps = {
@@ -211,7 +211,7 @@ export const Filters = (props) => {
   return (
     <Grid container spacing={3}>
       {/* Row #1 */}
-      <Grid item xs={3}>
+      <Grid size={3}>
         <FormControl className={classes.formControl}>
           <InputLabel>Boxes</InputLabel>
           <Select
@@ -231,7 +231,7 @@ export const Filters = (props) => {
           </Select>
         </FormControl>
       </Grid>
-      <Grid item xs={3}>
+      <Grid size={3}>
         <FormControl className={classes.formControl}>
           <InputLabel>Catalogs</InputLabel>
           <Select
@@ -251,7 +251,7 @@ export const Filters = (props) => {
           </Select>
         </FormControl>
       </Grid>
-      <Grid item xs={3}>
+      <Grid size={3}>
         <FormControl className={classes.formControl}>
           <InputLabel>Kinds</InputLabel>
           <Select
@@ -271,7 +271,7 @@ export const Filters = (props) => {
           </Select>
         </FormControl>
       </Grid>
-      <Grid item xs={3}>
+      <Grid size={3}>
         <FormControl className={classes.formControl}>
           <InputLabel>Categories</InputLabel>
           <Select
@@ -292,40 +292,40 @@ export const Filters = (props) => {
         </FormControl>
       </Grid>
       {/* Row #2 */}
-      <Grid item xs={3}>
+      <Grid size={3}>
         <DatePicker
           label="Expiration Date From"
           value={filters.expirationDateFrom}
           onChange={handleDateChange("expirationDateFrom")}
-          renderInput={(params) => <TextField {...params} variant="standard" />}
+          slotProps={{ textField: { variant: "standard", fullWidth: true } }}
         />
       </Grid>
-      <Grid item xs={3}>
+      <Grid size={3}>
         <DatePicker
           label="Expiration Date To"
           value={filters.expirationDateTo}
           onChange={handleDateChange("expirationDateTo")}
-          renderInput={(params) => <TextField {...params} variant="standard" />}
+          slotProps={{ textField: { variant: "standard", fullWidth: true } }}
         />
       </Grid>
-      <Grid item xs={3}>
+      <Grid size={3}>
         <DatePicker
           label="Purchase Date From"
           value={filters.purchaseDateFrom}
           onChange={handleDateChange("purchaseDateFrom")}
-          renderInput={(params) => <TextField {...params} variant="standard" />}
+          slotProps={{ textField: { variant: "standard", fullWidth: true } }}
         />
       </Grid>
-      <Grid item xs={3}>
+      <Grid size={3}>
         <DatePicker
           label="Purchase Date To"
           value={filters.purchaseDateTo}
           onChange={handleDateChange("purchaseDateTo")}
-          renderInput={(params) => <TextField {...params} variant="standard" />}
+          slotProps={{ textField: { variant: "standard", fullWidth: true } }}
         />
       </Grid>
       {/* Row #3 */}
-      <Grid item xs={4}>
+      <Grid size={4}>
         <TextField
           label="Value from"
           type="number"
@@ -336,7 +336,7 @@ export const Filters = (props) => {
           className={classes.textField}
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid size={4}>
         <TextField
           label="Value to"
           type="number"
@@ -347,7 +347,7 @@ export const Filters = (props) => {
           className={classes.textField}
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid size={4}>
         <TextField
           label="Search query"
           type="text"
@@ -358,10 +358,10 @@ export const Filters = (props) => {
           className={classes.textField}
         />
       </Grid>
-      <Grid item xs={6}>
+      <Grid size={6}>
         <Button onClick={handleClearFilters}>Clear filters</Button>
       </Grid>
-      <Grid item xs={6}>
+      <Grid size={6}>
         <Button onClick={handleSubmit}>Search</Button>
       </Grid>
     </Grid>

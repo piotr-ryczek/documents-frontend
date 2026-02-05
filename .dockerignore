@@ -1,0 +1,10 @@
+node_modules
+build
+.git
+.gitignore
+.eslintcache
+*.md
+Dockerfile
+.dockerignore
+.env*
+.env

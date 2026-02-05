@@ -2,7 +2,7 @@ import axios from "axios";
 
 class Api {
   constructor() {
-    this.baseUrl = "http://localhost:3000";
+    this.baseUrl = process.env.REACT_APP_API_URL || "/api";
   }
 
   async get(url) {
